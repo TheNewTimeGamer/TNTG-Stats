@@ -14,19 +14,19 @@ function CreateStatFrame(prev, r, g, b, a, iconPath)
     local icon = TNTG.EnvelopingFrame.Create("testFrame", UIParent)
     icon:SetSize(14,14)
     icon:SetPoint("TOP", frame.Frame, "BOTTOM", 0, 0)
-    icon:SetTexture(iconPath or "Interface\\Icons\\Ability_Warrior_Sunder")
+    icon:SetTexture(iconPath or "Interface\\Icons\\Inv_gizmo_goblingtonkcontroller")
     icon:SetVisible(true)
 
     return frame
 end
 
-local physical = CreateStatFrame(nil, 0, 0, 1, 1)
-local Dodge = CreateStatFrame(physical.Frame, 1, 0, 0, 1)
-local Haste = CreateStatFrame(Dodge.Frame, 1, 0, 0, 1)
-local Crit = CreateStatFrame(Haste.Frame, 1, 0, 0, 1)
-local Mastery = CreateStatFrame(Crit.Frame, 1, 0, 0, 1)
-local Vers = CreateStatFrame(Mastery.Frame, 1, 0, 0, 1)
-local Leech = CreateStatFrame(Vers.Frame, 1, 0, 0, 1)
+local physical = CreateStatFrame(nil, 0, 0, 1, 1, "Interface\\Icons\\Ability_warrior_defensivestance")
+local Dodge = CreateStatFrame(physical.Frame, 0.3, 0.3, 1, 1, "Interface\\Icons\\Ability_vehicle_launchplayer")
+local Haste = CreateStatFrame(Dodge.Frame, 0, 1, 0, 1, "Interface\\Icons\\Ability_Druid_Dash")
+local Crit = CreateStatFrame(Haste.Frame, 1, 0, 0, 1, "Interface\\Icons\\Ability_warlock_baneofhavoc")
+local Mastery = CreateStatFrame(Crit.Frame, 1, 0.84, 0, 1, "Interface\\Icons\\Ability_Druid_MasterShapeshifter")
+local Vers = CreateStatFrame(Mastery.Frame, 1, 1, 0.4, 1, "Interface\\Icons\\Ability_vehicle_shellshieldgenerator")
+local Leech = CreateStatFrame(Vers.Frame, 1, 0, 1, 1, "Interface\\Icons\\Ability_creature_disease_05")
 
 physical.Frame:SetScript("OnUpdate", function(self)
     local armor = math.floor(PaperDollFrame_GetArmorReduction(select(2, UnitArmor('player')), UnitEffectiveLevel('player')))
